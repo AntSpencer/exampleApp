@@ -1,6 +1,6 @@
 body {
    font-family: Arial, sans-serif;
-   background-color: #f0f0f0;
+   background-image: linear-gradient(to bottom right, cyan, purple);
    margin: 0;
    padding: 0;
    display: flex;
@@ -11,9 +11,9 @@ body {
 
 #chat-container {
    width: 400px;
-   background-color: #fff;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   border-radius: 5px;
+   background-color: #ffffff;
+   border-radius: 8px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
    overflow: hidden;
    display: flex;
    flex-direction: column;
@@ -21,41 +21,43 @@ body {
 
 #chat {
    flex: 1;
-   padding: 10px;
+   padding: 20px;
    overflow-y: auto;
-   border-bottom: 1px solid #ddd;
+   border-bottom: 1px solid #e0e0e0;
 }
 
-#chat div {
-   margin-bottom: 10px;
-   padding: 8px 12px;
-   background-color: #f1f1f1;
-   border-radius: 4px;
+#chat div.message {
+   margin-bottom: 16px;
+   padding: 12px 16px;
+   background-color: #f9f9f9;
+   border-radius: 8px;
 }
 
 #input-container {
    display: flex;
-   border-top: 1px solid #ddd;
+   border-top: 1px solid #e0e0e0;
+   padding: 10px 20px;
 }
 
 #messageInput {
    flex: 1;
-   padding: 10px;
+   padding: 12px;
    border: none;
-   border-top: 1px solid #ddd;
    font-size: 16px;
    outline: none;
+   border-radius: 4px;
 }
 
-#sendButton {
-   padding: 10px 20px;
+#sendMessageButton {
+   padding: 12px 20px;
    border: none;
    background-color: #007bff;
-   color: white;
+   color: #ffffff;
    font-size: 16px;
    cursor: pointer;
+   border-radius: 4px;
 }
 
-#sendButton:hover {
+#sendMessageButton:hover {
    background-color: #0056b3;
 }
