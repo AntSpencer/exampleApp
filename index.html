@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WebSocket Chat</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div id="chat-container">
+    <div id="chat"></div>
+    <div id="input-container">
+      <input id="messageInput" type="text" placeholder="Type a message..." />
+      <button id="sendButton" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const ws = new WebSocket('ws://localhost:8080');
+
+    ws.onopen = () => {
+      console.log('Connected to the server');
+    };
+
+    ws.onmessage = (event) => {
+      const chat = document.getElementById('chat');
+      const message = document.createElement('div');
+      message.textContent = event.data;
+      chat.appendChild(message);
+      chat.scrollTop = chat.scrollHeight;  // Scroll to the bottom
+    };
+
+    ws.onclose = () => {
+      console.log('Disconnected from the server');
+    };
+
+    function sendMessage() {
+      const input = document.getElementById('messageInput');
+      ws.send(input.value);
+      input.value = '';
+    }
+
+    // Send message on Enter key press
+    document.getElementById('messageInput').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+
+</html>
